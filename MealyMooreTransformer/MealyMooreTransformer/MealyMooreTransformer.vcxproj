@@ -151,10 +151,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="generateGraph.cpp" />
     <ClCompile Include="MealyMooreTransformer.cpp" />
+    <ClCompile Include="transformMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="genPng.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="generateGraph.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="transformMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
