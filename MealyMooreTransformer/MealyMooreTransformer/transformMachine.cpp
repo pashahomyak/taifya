@@ -29,18 +29,18 @@ void transformToMoore(int numOfInputCharsAlphabet, int numOfVertex, ifstream& in
 	sort(sortedElements.begin(), sortedElements.end());
 	sort(sortedElements.begin(), sortedElements.end(), compareLength);
 
-	for (auto element : sortedElements)
+	for (auto el : sortedElements)
 	{
-		auto it = zItemsReverse.find(element);
+		auto it = zItemsReverse.find(el);
 		if (it == zItemsReverse.end())
 		{
-			zItemsReverse[element] = to_string(zItemsReverse.size());
-			zItems["z" + to_string(zItems.size())] = element;
+			zItemsReverse[el] = to_string(zItemsReverse.size());
+			zItems["z" + to_string(zItems.size())] = el;
 		}
 	}
 
 	vector<Edge> edges;
-	vector<double> weights;
+	vector<string> weights;
 
 	vector<vector<string>> resultTable(numOfInputCharsAlphabet, vector<string>(zItems.size()));
 	for (int i = 0; i < numOfInputCharsAlphabet; i++)
@@ -57,8 +57,7 @@ void transformToMoore(int numOfInputCharsAlphabet, int numOfVertex, ifstream& in
 			outputFile << "z" + resultItem << " ";
 
 			edges.push_back({ j, stoi(resultItem) });
-			//weights.push_back(i + 1);
-			weights.push_back(i);
+			weights.push_back("x" + to_string(i));
 		}
 		outputFile << endl;
 	}
@@ -76,7 +75,7 @@ void transformToMealy(int numOfInputCharsAlphabet, int numOfVertex, std::ifstrea
 	}
 
 	vector<Edge> edges;
-	vector<double> weights;
+	vector<string> weights;
 	string element;
 
 	for (int i = 0; i < numOfInputCharsAlphabet; i++)
@@ -88,9 +87,7 @@ void transformToMealy(int numOfInputCharsAlphabet, int numOfVertex, std::ifstrea
 			outputFile << yIndexes[element] << " ";
 
 			edges.push_back({ j, stoi(element.substr(1)) });
-			//string doubleWeight = (to_string(i + 1) + "." + yIndexez[element].substr(yIndexez[element].find_first_of('y') + 1));
-			string doubleWeight = (to_string(i) + "." + yIndexes[element].substr(yIndexes[element].find_first_of('y') + 1));
-			double currWeight = stod(doubleWeight);
+			string currWeight = ("x" + to_string(i) + "y" + yIndexes[element].substr(yIndexes[element].find_first_of('y') + 1));
 			weights.push_back(currWeight);
 		}
 		outputFile << endl;

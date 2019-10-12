@@ -1,11 +1,8 @@
-﻿//x с 1
-//название вершин задано числом (1 -> z1)
+﻿//название вершин задано числом (1 -> z1)
 //названия дуг аналогично (1 -> x1 for mealy) (1.1 -> x1y1) (2 -> x2y0 for moore)
 
 #include "stdafx.h"
 #include "transformMachine.h"
-
-#define _SCL_SECURE_NO_WARNINGS
 
 using namespace std;
 

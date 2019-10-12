@@ -3,9 +3,9 @@
 
 using namespace std;
 
-void generateGraph(int vertexCount, vector<double> weights, vector<Edge> edges)
+void generateGraph(int vertexCount, vector<string> weights, vector<Edge> edges)
 {
-	using Graph = boost::adjacency_list< boost::vecS, boost::vecS, boost::directedS, boost::property< boost::vertex_color_t, boost::default_color_type >, boost::property< boost::edge_weight_t, double>>;
+	using Graph = boost::adjacency_list< boost::vecS, boost::vecS, boost::directedS, boost::property< boost::vertex_color_t, boost::default_color_type >, boost::property< boost::edge_weight_t, string>>;
 
 	Graph graph(edges.begin(), edges.end(), weights.begin(), vertexCount);
 
