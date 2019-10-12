@@ -10,8 +10,6 @@ void generateGraph(int vertexCount, vector<string> weights, vector<Edge> edges)
 	Graph graph(edges.begin(), edges.end(), weights.begin(), vertexCount);
 
 	boost::dynamic_properties dp;
-	dp.property("weight", boost::get(boost::edge_weight,
-		graph));
 	dp.property("label", boost::get(boost::edge_weight,
 		graph));
 	dp.property("node_id", boost::get(boost::vertex_index,
